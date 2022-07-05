@@ -17,7 +17,6 @@ public class Program {
             }
             str.append(strOfWeek).append(" ");
             System.out.print("-> ");
-            //str.append(getArrow(scan.nextLine()));
             if(getArrow(scan.nextLine(), str) == -1){
                 System.err.println("IncorrectInput");
                 return;
@@ -36,7 +35,7 @@ public class Program {
 
         if (str.isEmpty() || checkStringNumOrSpace(str) == -1 || str.length() != 9)
             return -1;
-        while (iEnd != -1 && iStart != str.length())          //дописать проверку на количество значений == 5
+        while (iEnd != -1 && iStart != str.length())
         {
             if(str.charAt(iStart) == ' '){
                 iStart++;
@@ -44,10 +43,9 @@ public class Program {
             }
             iEnd = str.indexOf(' ', iStart);
             if (iEnd == -1)
-                num = Integer.parseInt(str.substring(iStart));          //дописать проверку на num == -1
+                num = Integer.parseInt(str.substring(iStart));
             else
-                num = Integer.parseInt(str.substring(iStart, iEnd));    //дописать проверку на num == -1
-            //проверку на величину каждого значения не более 9
+                num = Integer.parseInt(str.substring(iStart, iEnd));
             if(num < 0 || num > 9)
                 return -1;
             if (num < min)
@@ -57,7 +55,6 @@ public class Program {
         }
         if(cnt != 5)
             return -1;
-        //StringBuilder result = new StringBuilder();
         for(int i = 0; i < min; ++i)
             result.append("=");
         result.append(">\n");
