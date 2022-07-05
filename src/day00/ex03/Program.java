@@ -30,8 +30,12 @@ public class Program {
         int min = 10;
         int num;
 
-        while (iEnd != -1)          //дописать проверку на количество значений == 5
+        while (iEnd != -1 && iStart != str.length())          //дописать проверку на количество значений == 5
         {
+            if(str.charAt(iStart) == ' '){
+                iStart++;
+                continue;
+            }
             iEnd = str.indexOf(' ', iStart);
             //дописать проверку на iEnd == -1
             if (iEnd == -1)
