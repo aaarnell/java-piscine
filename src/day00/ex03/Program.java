@@ -10,11 +10,12 @@ public class Program {
             System.out.print("-> ");
             String strOfWeek = scan.nextLine();
             if (strOfWeek.equals("42"))
-                break ;
-
-            //дописать проверку на номер недели
+                break;
+            if (!strOfWeek.equals("Week " + i)) {
+                System.err.println("IllegalArgument");
+                return;
+            }
             str.append(strOfWeek).append(" ");
-
             System.out.print("-> ");
             str.append(getArrow(scan.nextLine()));
         }
@@ -43,8 +44,8 @@ public class Program {
             iStart = iEnd + 1;
         }
         StringBuilder result = new StringBuilder();
- 		for(int i = 0; i < min; ++i)
-             result.append("=");
+        for(int i = 0; i < min; ++i)
+            result.append("=");
         result.append(">\n");
         return result.toString();
     }
