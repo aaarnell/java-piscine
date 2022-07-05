@@ -17,19 +17,25 @@ public class Program {
             }
             str.append(strOfWeek).append(" ");
             System.out.print("-> ");
-            str.append(getArrow(scan.nextLine()));
+            //str.append(getArrow(scan.nextLine()));
+            if(getArrow(scan.nextLine(), str) == -1){
+                System.err.println("IncorrectInput");
+                return;
+            }
         }
         scan.close();
         System.out.println(str);
     }
 
-    static String getArrow(String str){
-        //дописать проверку на пустую строку str.isEmpty();
+    static int getArrow(String str, StringBuilder result){
         int iStart = 0;
         int iEnd = 0;
         int min = 10;
         int num;
+        int cnt = 0;
 
+        if (str.isEmpty() || checkStringNumOrSpace(str) == -1 || str.length() != 9)
+            return -1;
         while (iEnd != -1 && iStart != str.length())          //дописать проверку на количество значений == 5
         {
             if(str.charAt(iStart) == ' '){
@@ -37,20 +43,31 @@ public class Program {
                 continue;
             }
             iEnd = str.indexOf(' ', iStart);
-            //дописать проверку на iEnd == -1
             if (iEnd == -1)
                 num = Integer.parseInt(str.substring(iStart));          //дописать проверку на num == -1
             else
                 num = Integer.parseInt(str.substring(iStart, iEnd));    //дописать проверку на num == -1
             //проверку на величину каждого значения не более 9
+            if(num < 0 || num > 9)
+                return -1;
             if (num < min)
                 min = num;
+            cnt++;
             iStart = iEnd + 1;
         }
-        StringBuilder result = new StringBuilder();
+        if(cnt != 5)
+            return -1;
+        //StringBuilder result = new StringBuilder();
         for(int i = 0; i < min; ++i)
             result.append("=");
         result.append(">\n");
-        return result.toString();
+        return 0;
+    }
+
+    static int checkStringNumOrSpace(String s){
+        for(int i=0; i < s.length(); i++)
+            if((s.charAt(i) < '0' || s.charAt(i) > '9') && s.charAt(i) != ' ')
+                return -1;
+        return 0;
     }
 }
