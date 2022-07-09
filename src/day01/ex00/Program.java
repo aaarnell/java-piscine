@@ -4,9 +4,6 @@ import java.util.Scanner;
 
 public class Program{
     public static void main(String[] args) {
-        //init Scanner
-        //Scanner sc = new Scanner(System.in);
-        //init user
         User userSender = new User("John", 200);
         System.out.println("Sender: " + userSender.getName() + " " + userSender.getBalance());
         User userReceiver = new User("Tommy", 1000);
