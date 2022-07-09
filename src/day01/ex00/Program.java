@@ -4,9 +4,9 @@ package day01.ex00;
 //credit is all the money flowing OUT an account
 public class Program{
     public static void main(String[] args) {
-        System.out.println("\n======================TOMMY to JOHNY========================");
         User userTommy = new User("Tommy", 1000);
         User userJohn = new User("John", 200);
+        System.out.println("\n======================TOMMY to JOHNY========================");
 
         System.out.println("Sender: " + userTommy.getName() + " with balance" + " " + userTommy.getBalance());
         System.out.println("Receiver: " + userJohn.getName() + " with balance" + " " + userJohn.getBalance());
