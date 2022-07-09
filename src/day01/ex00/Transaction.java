@@ -58,10 +58,11 @@ public class Transaction {
     }
 
     public void setAmount(Integer amount){
-        if(amount > 0 && category.equals("debit") || category.equals("credit"))
-            this.amount = amount;
+        if(amount < 0 && category.equals("debit"))
+            System.err.println("Amount cannot be negative!");
+        else if(amount > 0 && category.equals("credit"))
+            System.err.println("Amount cannot be positive!");
         else
-            System.out.println("Invalid amount");
-
+            this.amount = amount;
     }
 }
