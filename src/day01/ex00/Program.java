@@ -18,7 +18,7 @@ public class Program{
         transaction.setCategory(category);
         transaction.setAmount(amount);
         //print transaction
-        System.out.println(transaction.getSender().getName() + " -> "  + transaction.getRecipient().getName() + ", " + transaction.getAmount() + ", " + transaction.getCategory() + ", " + transaction.getUUID());
+        System.out.println("Transaction: " + transaction.getCategory() + " " + transaction.getAmount());
     }
 
     //public static User mainMenuPrompt(Scanner sc) {
