@@ -45,17 +45,13 @@ public class Transaction {
         this.sender = sender;
     }
 
-    public String getCategory(){
-        return this.category;
-    }
+    public String getCategory(){ return this.category; }
 
     public void setCategory(String category){
         this.category = category;
     }
 
-    public Integer getAmount(){
-        return this.amount;
-    }
+    public Integer getAmount(){ return this.amount; }
 
     public void setAmount(Integer amount){
         if(amount < 0 && category.equals("debit"))
