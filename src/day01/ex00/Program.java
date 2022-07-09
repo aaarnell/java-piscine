@@ -7,8 +7,10 @@ public class Program{
         //init Scanner
         //Scanner sc = new Scanner(System.in);
         //init user
-        User userSender = new User("John", 100);
+        User userSender = new User("John", 200);
+        System.out.println("Sender: " + userSender.getName() + " " + userSender.getBalance());
         User userReceiver = new User("Tommy", 1000);
+        System.out.println("Receiver: " + userReceiver.getName() + " " + userReceiver.getBalance());
         //init transaction
         String category = "debit";
         Integer amount = 100;

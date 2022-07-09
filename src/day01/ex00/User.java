@@ -19,7 +19,7 @@ public class User {
         setBalance(balance);
 
         //print log message
-        System.out.printf("New user %s, %s with ID %s created\n", name, this.uuid);
+        System.out.println("User " + name + " created with balance " + balance);
     }
 
     public Integer getUUID(){
