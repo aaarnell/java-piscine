@@ -1,6 +1,5 @@
 package day01.ex00;
 
-import java.util.Scanner;
 //debit is all the money flowing INTO an account
 //credit is all the money flowing OUT an account
 public class Program{
