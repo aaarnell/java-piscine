@@ -58,7 +58,7 @@ public class Transaction {
     }
 
     public void setAmount(Integer amount){
-        if(amount < 0 && category.equals("debit") || category.equals("credit"))
+        if(amount > 0 && category.equals("debit") || category.equals("credit"))
             this.amount = amount;
         else
             System.out.println("Invalid amount");
