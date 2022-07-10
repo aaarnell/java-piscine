@@ -21,6 +21,18 @@ public class Transaction {
      * @param amount amount of the transaction
      */
 
+    {
+        this.uuid = UUID.randomUUID();
+    }
+    Transaction () {}
+
+    Transaction (User recipient, User sender, String category, Integer amount){
+        this.recipient = recipient;
+        this.sender = sender;
+        this.category = category;
+        this.amount  = amount;
+    }
+
     public UUID getUUID(){
         return this.uuid;
     }
@@ -48,6 +60,8 @@ public class Transaction {
     public String getCategory(){ return this.category; }
 
     public void setCategory(String category){
+        if(!category.equals("debit") && !category.equals("credit"))
+            System.err.println("Use 'debit' or 'credit' please");
         this.category = category;
     }
 
