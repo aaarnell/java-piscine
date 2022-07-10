@@ -3,7 +3,7 @@ package day01.ex01;
 public class UserIdsGenerator {
     private static final UserIdsGenerator INSTANCE = new UserIdsGenerator();
 
-   	private int uuid = 0;
+   	private int uuid = 1;
 
    	private UserIdsGenerator() {}
 
@@ -11,7 +11,7 @@ public class UserIdsGenerator {
     	return  INSTANCE;
 	}
 
-	public static int generateId(){
-		return INSTANCE.uuid++;
+	public int generateId(){
+		return this.uuid++;
 	}
 }

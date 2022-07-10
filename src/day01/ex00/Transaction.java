@@ -20,17 +20,37 @@ public class Transaction {
      * @param category category of the transaction
      * @param amount amount of the transaction
      */
-
-    {
-        this.uuid = UUID.randomUUID();
-    }
-    Transaction () {}
-
-    Transaction (User recipient, User sender, String category, Integer amount){
-        this.recipient = recipient;
+    Transaction (
+            User sender,
+            User recipient,
+            String category,
+            Integer amount
+    ){
         this.sender = sender;
+        this.recipient = recipient;
         this.category = category;
         this.amount  = amount;
+        this.uuid = UUID.randomUUID();
+
+        if (category.equals("credit"))
+            sender.setBalance(sender.getBalance() + amount);
+        else
+            recipient.setBalance(recipient.getBalance() + amount);
+    }
+
+    public static Transaction createTransaction(
+            User sender,
+            User recipient,
+            Integer amount
+    ){
+        if (amount > 0 && (sender.getBalance() - amount) >= 0)
+            return new Transaction(sender, recipient, "debit", amount);
+        else if (amount < 0 && (sender.getBalance() + amount) >= 0)
+            return new Transaction(sender, recipient, "credit", amount);
+        else {
+            System.err.println("Transaction not created. Incorrect data of transaction.");
+            return null;
+        }
     }
 
     public UUID getUUID(){

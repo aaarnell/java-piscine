@@ -11,33 +11,11 @@ public class Program{
         System.out.println("Sender: " + userTommy.getName() + " with balance" + " " + userTommy.getBalance());
         System.out.println("Receiver: " + userJohn.getName() + " with balance" + " " + userJohn.getBalance());
         //init transaction
-        String category = "credit";
-        Integer amount = -100;
-        Transaction transaction = new Transaction();
-        transaction.setCategory(category);
-        transaction.setAmount(amount);
+        Integer amount = 1001;
+        Transaction outcome = Transaction.createTransaction(userTommy, userJohn, -amount);
+        Transaction income = Transaction.createTransaction(userTommy, userJohn, amount);
 
-        userTommy.setBalance(userTommy.getBalance() + amount);
-        userJohn.setBalance(userJohn.getBalance() + (-amount));
-
-        System.out.println("Transaction type: " + transaction.getCategory() + " " + transaction.getAmount());
         System.out.println("After transaction: " + userTommy.getName() + " " + userTommy.getBalance());
         System.out.println("After transaction: " + userJohn.getName() + " " + userJohn.getBalance());
-        System.out.println("\n======================JOHNY to TOMMY========================");
-
-        System.out.println("Receiver: " + userTommy.getName() + " with balance" + " " + userTommy.getBalance());
-        System.out.println("Sender: " + userJohn.getName() + " with balance" + " " + userJohn.getBalance());
-        category = "debit";
-        amount = 200;
-        transaction.setCategory(category);
-        transaction.setAmount(amount);
-
-        userJohn.setBalance(userJohn.getBalance() + (-amount));
-        userTommy.setBalance(userTommy.getBalance() + amount);
-
-        System.out.println("Transaction type: " + transaction.getCategory() + " " + transaction.getAmount());
-        System.out.println("After transaction: " + userTommy.getName() + " " + userTommy.getBalance());
-        System.out.println("After transaction: " + userJohn.getName() + " " + userJohn.getBalance());
-
     }
 }
