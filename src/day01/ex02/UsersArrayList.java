@@ -1,6 +1,14 @@
 package day01.ex02;
 
 /**
+ * super означает, что метод будет вызван из базового класса.
+ */
+class UserNotFoundException extends Exception {
+	public UserNotFoundException(String message) {
+		super(message);
+	}
+}
+/**
  * Интерфейс определяет контракт класса для реализации некоторого набора методов.
  * Чтобы написать класс, реализующий интерфейс, необходимо выполнить
  * два условия. Во-первых, в объявление класса должно быть включено ключевое
@@ -8,10 +16,11 @@ package day01.ex02;
  * контрактом» — обязательством реализовать все абстрактные методы, объявленные
  * в интерфейсе. Во-вторых, вы должны реализовать каждый абстрактный метод.
  */
-
 public class UsersArrayList implements UsersList {
+
 	private User[] users;
 	private int size;
+
 	private int capacity;
 
 	public UsersArrayList() {
@@ -34,29 +43,20 @@ public class UsersArrayList implements UsersList {
 		this.size++;
 	}
 
-	/**
-	 * super означает, что метод будет вызван из базового класса.
-	 */
-//	public class UserNotFoundException extends Exception {
-//		public UserNotFoundException(String message) {
-//			super(message);
-//		}
-//	}
-
-	public User getByIndex(int index) throws IndexOutOfBoundsException {
+	public User getByIndex(int index) throws UserNotFoundException {
 		if (index >= this.size) {
-			throw new IndexOutOfBoundsException("User with index " + index + " not found");
+			throw new UserNotFoundException("User with index " + index + " not found");
 		}
 		return this.users[index];
 	}
 
-	public User getByID(int id) throws IndexOutOfBoundsException {
+	public User getByID(int id) throws UserNotFoundException {
 		for (int i = 0; i < this.size; i++) {
 			if (this.users[i].getId() == id) {
 				return this.users[i];
 			}
 		}
-		throw new IndexOutOfBoundsException("User with id " + id + " not found");
+		throw new UserNotFoundException("User with id " + id + " not found");
 	}
 
 	public int capacity() {
