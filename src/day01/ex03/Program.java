@@ -1,7 +1,7 @@
 package day01.ex03;
 
 public class Program {
-	public static void main(String[] args) {
+	public static void main(String[] args) throws TransactionNotFound {
 		User user1 = new User("John", 100);
 		User user2 = new User("Jane", 200);
 
@@ -21,10 +21,8 @@ public class Program {
 		System.out.println(list.toArray()[2].getUUID());
 		System.out.println(list.toArray()[3].getUUID());
 
-//		try {
-//			list.removeById(transaction
-//					.getUUID());
-//		} catch (TransactionNotFound e) {
+		list.removeById(transaction3.getUUID());
+		System.out.println(list.toArray()[2].getUUID());
 
 	}
 }

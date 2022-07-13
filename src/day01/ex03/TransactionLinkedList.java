@@ -1,6 +1,14 @@
 package day01.ex03;
 
-public class TransactionLinkedList extends TransactionList {
+import java.util.UUID;
+
+class TransactionNotFound extends Exception {
+	public TransactionNotFound(String message) {
+		super(message);
+	}
+}
+
+public class TransactionLinkedList implements TransactionList {
 
 	private transactionNode first;
 
@@ -13,7 +21,6 @@ public class TransactionLinkedList extends TransactionList {
 	 * @param last last element of the list
 	 * @param size number of elements in the list
 	 */
-
 
 	public TransactionLinkedList() {
 		this.first = null;
@@ -28,12 +35,12 @@ public class TransactionLinkedList extends TransactionList {
 
 	// Add a transaction to the list
 	public void add(Transaction transaction) {
-		first.setNext(transaction);
+		first.setNext(new transactionNode(transaction, first, null));
 		size++;
 	}
 
 	//removeById - remove transaction by id
-	public void removeById(UUID uuid) {
+	public void removeById(UUID uuid) throws TransactionNotFound {
 		transactionNode current = first;
 		transactionNode previous = null;
 		while (current != null) {
@@ -49,7 +56,7 @@ public class TransactionLinkedList extends TransactionList {
 			previous = current;
 			current = current.getNext();
 		}
-		throw new TransactionNotFound();
+		throw new TransactionNotFound("Transaction not found");
 	}
 
 	/**
@@ -111,13 +118,6 @@ public class TransactionLinkedList extends TransactionList {
 		//set previous transaction
 		public void setPrev(transactionNode prev) {
 			this.prev = prev;
-		}
-
-		//check if transaction is last
-//		public boolean isLast() {
-//			return next == null;
-//		}
-
 		}
 	}
 }
