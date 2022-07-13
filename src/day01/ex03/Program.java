@@ -13,6 +13,7 @@ public class Program {
 			TransactionList transactionList = new TransactionLinkedList();
 			//ссылка типа интерфейса TransactionList ссылается на новый объект типа TransactionLinkedList
 			//add - добавляет транзакцию в список
+			//две транзакции с разными ID
 			transactionList.add(outcome);
 			transactionList.add(income);
 			System.out.println("Transaction list size: " + ((TransactionLinkedList) transactionList).getSize());
