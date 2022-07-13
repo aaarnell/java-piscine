@@ -1,10 +1,10 @@
 package day01.ex03;
 
-public class TransactionLinkedList implements TransactionList {
+public class TransactionLinkedList extends TransactionList {
 
-	private Transaction first;
+	private transactionNode first;
 
-	private Transaction last;
+	private transactionNode last;
 
 	private int size;
 
@@ -19,19 +19,53 @@ public class TransactionLinkedList implements TransactionList {
 		this.first = null;
 		this.last = null;
 		this.size = 0;
+		
+		first = new transactionNode(null, null, null);
+		last = new transactionNode(null, null, null);
+		first.setNext(last);
+		last.setPrev(first);
 	}
 
-	public void add(Transaction transaction) throws TransactionNotFound{
-
+	// Add a transaction to the list
+	public void add(Transaction transaction) {
+		first.setNext(transaction);
+		size++;
 	}
 
-	public void removeById(UUID uuid) throws TransactionNotFound{
-
-
+	//removeById - remove transaction by id
+	public void removeById(UUID uuid) {
+		transactionNode current = first;
+		transactionNode previous = null;
+		while (current != null) {
+			if (current.getTransaction().getUUID().equals(uuid)) {
+				if (previous == null) {
+					first = current.getNext();
+				} else {
+					previous.setNext(current.getNext());
+				}
+				size--;
+				return;
+			}
+			previous = current;
+			current = current.getNext();
+		}
+		throw new TransactionNotFound();
 	}
 
-	public Transaction[] toArray(){
-		return null;
+	/**
+	 * @return array of transactions
+	 */
+
+	public Transaction[] toArray() {
+		Transaction[] transactions = new Transaction[size];
+		transactionNode current = first.getNext();
+		int i = 0;
+		while (current != null) {
+			transactions[i] = current.getTransaction();
+			current = current.getNext();
+			i++;
+		}
+		return transactions;
 	}
 
 	private static class transactionNode {
@@ -61,26 +95,29 @@ public class TransactionLinkedList implements TransactionList {
 			return next;
 		}
 
+		//get previous transaction
 		public transactionNode getPrev() {
 			return prev;
 		}
 
+		//set next transaction
 		public void setTransaction(Transaction transaction) {
 			this.transaction = transaction;
 		}
-
+		//set next transaction
 		public void setNext(transactionNode next) {
 			this.next = next;
 		}
-
+		//set previous transaction
 		public void setPrev(transactionNode prev) {
 			this.prev = prev;
 		}
 
-		public String toString() {
-			return transaction.toString();
+		//check if transaction is last
+//		public boolean isLast() {
+//			return next == null;
+//		}
+
 		}
-
 	}
-
 }
