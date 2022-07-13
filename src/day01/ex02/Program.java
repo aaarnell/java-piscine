@@ -34,7 +34,6 @@ public class Program{
 
 		System.out.println("======SIZE======");
 		System.out.println(usersList.size());
-		System.out.println(usersList.capacity());
 
 	}
 

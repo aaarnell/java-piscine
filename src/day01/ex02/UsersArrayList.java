@@ -26,7 +26,8 @@ public class UsersArrayList implements UsersList {
 			for (int i = 0; i < this.size; i++) {
 				newUsers[i] = this.users[i];
 			}
-			System.out.println("Capacity is full, so we increase it to " + this.capacity * 2);
+			this.capacity = (int) (this.capacity * 1.5F);
+			System.out.println("Capacity is full, so we increase it to " + this.capacity);
 			this.users = newUsers;
 		}
 		this.users[this.size] = user;
