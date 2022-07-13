@@ -25,7 +25,7 @@ public class Program{
             System.out.println(usersList.getByID(2).getId());
             System.out.println(usersList.getByID(3).getId());
             //System.out.println(usersList.getByID(20).getId());
-            //расскоментить, чтобы увидеть как бросается UserNotFoundException
+            //раскоментить, чтобы увидеть как бросается UserNotFoundException
 
             System.out.println("======GET BY INDEX======");
             System.out.println(usersList.getByIndex(0).getName());
@@ -34,7 +34,7 @@ public class Program{
             System.out.println(usersList.getByIndex(3).getName());
             System.out.println(usersList.getByIndex(4).getName());
             //System.out.println(usersList.getByIndex(20).getName());
-            //расскоментить, чтобы увидеть как бросается UserNotFoundException
+            //раскоментить, чтобы увидеть как бросается UserNotFoundException
 
             System.out.println("======SIZE======");
             System.out.println(usersList.size());
