@@ -35,14 +35,14 @@ public class UsersArrayList implements UsersList {
 	/**
 	 * super означает, что метод будет вызван из базового класса.
 	 */
-	public class UserNotFoundException extends Exception {
-		public UserNotFoundException(String message) {
-			super(message);
-		}
-	}
+//	public class UserNotFoundException extends Exception {
+//		public UserNotFoundException(String message) {
+//			super(message);
+//		}
+//	}
 	public User getByIndex(int index) {
 		if (index >= this.size) {
-			throw new UserNotFoundException();
+			throw new IndexOutOfBoundsException();
 		}
 		return this.users[index];
 	}
