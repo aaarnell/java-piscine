@@ -5,25 +5,21 @@ import day01.ex00.User;
 public class Program {
 	public static void main(String[] args) {
 		try {
-			User userTommy = new User("Tommy", 1000);
-			User userJohn = new User("John", 200);
-			System.out.println("\n======================TOMMY to JOHNY========================");
-
-			System.out.println("Sender: " + userTommy.getName() + " with balance" + " " + userTommy.getBalance());
-			System.out.println("Receiver: " + userJohn.getName() + " with balance" + " " + userJohn.getBalance());
+			day01.ex03.User userTommy = new day01.ex03.User("Tommy", 12345);
+			day01.ex03.User userJohn = new day01.ex03.User("John", 12345);
+			Transaction transaction = Transaction.createTransaction(userTommy, userJohn, 100);
+			TransactionList transactionList = new TransactionLinkedList();
+			transactionList.add(transaction);
+			transactionList.removeById(transaction.getUUID());
 			//init transaction
 			Integer amount = 1001;
-			day01.ex00.Transaction outcome = day01.ex00.Transaction.createTransaction(userTommy, userJohn, -amount);
-			day01.ex00.Transaction income = day01.ex00.Transaction.createTransaction(userTommy, userJohn, amount);
-
-			System.out.println("After transaction: " + userTommy.getName() + " " + userTommy.getBalance());
-			System.out.println("After transaction: " + userJohn.getName() + " " + userJohn.getBalance());
-
-			TransactionList transactionList = new TransactionLinkedList();
-
-			transactionList.add(outcome);
-
-			transactionList.removeById(outcome.getUUID());
+			transaction = Transaction.createTransaction(userTommy, userJohn, amount);
+			System.out.println("Transaction: " + transaction.getUUID() + " " + transaction.getSender().getName() + " " + transaction.getRecipient().getName() + " " + transaction.getCategory() + " " + transaction.getAmount());
+			//add transaction to list
+			transactionList = new TransactionLinkedList();
+			transactionList.add(transaction);
+			//remove transaction from list
+			transactionList.removeById(transaction.getUUID());
 
 			Transaction[] transactions = transactionList.toArray();
 			System.out.println(transactions[0].getUUID());

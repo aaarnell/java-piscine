@@ -44,11 +44,14 @@ public class TransactionLinkedList implements TransactionList {
 		transactionNode current = first;
 		transactionNode previous = null;
 		while (current != null) {
-			if (current.getTransaction().getUUID().equals(uuid)) {
-				if (previous == null) {
-					first = current.getNext();
+			if (current.getTransaction().getUUID() == uuid) {
+				if (current == first) {
+					first = first.getNext();
+				} else if (current == last) {
+					last = last.getPrev();
 				} else {
 					previous.setNext(current.getNext());
+					current.getNext().setPrev(previous);
 				}
 				size--;
 				return;
