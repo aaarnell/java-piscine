@@ -26,6 +26,7 @@ public class UsersArrayList implements UsersList {
 			for (int i = 0; i < this.size; i++) {
 				newUsers[i] = this.users[i];
 			}
+			System.out.println("Capacity is full, so we increase it to " + this.capacity * 2);
 			this.users = newUsers;
 		}
 		this.users[this.size] = user;
@@ -40,20 +41,25 @@ public class UsersArrayList implements UsersList {
 //			super(message);
 //		}
 //	}
-	public User getByIndex(int index) {
+
+	public User getByIndex(int index) throws IndexOutOfBoundsException {
 		if (index >= this.size) {
-			throw new IndexOutOfBoundsException();
+			throw new IndexOutOfBoundsException("User with index " + index + " not found");
 		}
 		return this.users[index];
 	}
 
-	public User getByID(int id) {
+	public User getByID(int id) throws IndexOutOfBoundsException {
 		for (int i = 0; i < this.size; i++) {
 			if (this.users[i].getId() == id) {
 				return this.users[i];
 			}
 		}
-		return null;
+		throw new IndexOutOfBoundsException("User with id " + id + " not found");
+	}
+
+	public int capacity() {
+		return this.capacity;
 	}
 
 	public int size() {

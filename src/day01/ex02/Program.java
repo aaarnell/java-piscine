@@ -16,6 +16,9 @@ public class Program{
         usersList.add(new User("Thomas", 900));
         usersList.add(new User( "Luke", 1000));
         usersList.add(new User("Zealot", 1100));
+        usersList.add(new User("Solomon", 1200));
+        usersList.add(new User("Paul", 1300));
+        usersList.add(new User("Peter", 1400));
 
 		System.out.println("======GET BY ID======");
 		System.out.println(usersList.getByID(1));
@@ -26,10 +29,13 @@ public class Program{
 		System.out.println(usersList.getByIndex(0));
 		System.out.println(usersList.getByIndex(1));
 		System.out.println(usersList.getByIndex(2));
+		System.out.println(usersList.getByIndex(3));
+		System.out.println(usersList.getByIndex(4));
 
 		System.out.println("======SIZE======");
 		System.out.println(usersList.size());
+		System.out.println(usersList.capacity());
 
-		//System.out.println(user.getId() + " " + user.getName()) + " " + user.getBalance();
-    }
+	}
+
 }
