@@ -1,28 +1,35 @@
 package day01.ex03;
 
+import day01.ex00.User;
+
 public class Program {
-	public static void main(String[] args) throws TransactionNotFound {
-		User user1 = new User("John", 100);
-		User user2 = new User("Jane", 200);
+	public static void main(String[] args) {
+		try {
+			User userTommy = new User("Tommy", 1000);
+			User userJohn = new User("John", 200);
+			System.out.println("\n======================TOMMY to JOHNY========================");
 
-		Transaction transaction1 = Transaction.createTransaction(user1, user2, 50);
-		Transaction transaction2 = Transaction.createTransaction(user1, user2, -50);
-		Transaction transaction3 = Transaction.createTransaction(user1, user2, -50);
-		Transaction transaction4 = Transaction.createTransaction(user1, user2, -50);
+			System.out.println("Sender: " + userTommy.getName() + " with balance" + " " + userTommy.getBalance());
+			System.out.println("Receiver: " + userJohn.getName() + " with balance" + " " + userJohn.getBalance());
+			//init transaction
+			Integer amount = 1001;
+			day01.ex00.Transaction outcome = day01.ex00.Transaction.createTransaction(userTommy, userJohn, -amount);
+			day01.ex00.Transaction income = day01.ex00.Transaction.createTransaction(userTommy, userJohn, amount);
 
-		TransactionLinkedList list = new TransactionLinkedList();
-		list.add(transaction1);
-		list.add(transaction2);
-		list.add(transaction3);
-		list.add(transaction4);
+			System.out.println("After transaction: " + userTommy.getName() + " " + userTommy.getBalance());
+			System.out.println("After transaction: " + userJohn.getName() + " " + userJohn.getBalance());
 
-		System.out.println(list.toArray()[0].getUUID());
-		System.out.println(list.toArray()[1].getUUID());
-		System.out.println(list.toArray()[2].getUUID());
-		System.out.println(list.toArray()[3].getUUID());
+			TransactionList transactionList = new TransactionLinkedList();
 
-		list.removeById(transaction3.getUUID());
-		System.out.println(list.toArray()[2].getUUID());
+			transactionList.add(outcome);
 
+			transactionList.removeById(outcome.getUUID());
+
+			Transaction[] transactions = transactionList.toArray();
+			System.out.println(transactions[0].getUUID());
+
+		} catch (TransactionNotFound e) {
+			System.out.println(e.getMessage());
+		}
 	}
 }
