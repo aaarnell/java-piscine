@@ -23,8 +23,6 @@ public class TransactionLinkedList implements TransactionList {
 	 */
 
 	public TransactionLinkedList() {
-		this.first = null;
-		this.last = null;
 		this.size = 0;
 		
 		first = new transactionNode(null, null, null);
@@ -35,9 +33,20 @@ public class TransactionLinkedList implements TransactionList {
 
 	// Add a transaction to the list
 	public void add(Transaction transaction) {
-		first.setNext(new transactionNode(transaction, first, null));
-		size++;
+		if(size == 0){
+			first.setTransaction(transaction);
+			last = first;
+			size++;
+		}
+		else{
+			last.next.setTransaction(transaction);
+			last.next.prev = last;
+			last = last.next;
+			size++;
+		}
 	}
+
+
 
 	//removeById - remove transaction by id
 	public void removeById(UUID uuid) throws TransactionNotFound {
@@ -65,6 +74,10 @@ public class TransactionLinkedList implements TransactionList {
 	/**
 	 * @return array of transactions
 	 */
+
+	public int getSize() {
+		return size;
+	}
 
 	public Transaction[] toArray() {
 		Transaction[] transactions = new Transaction[size];
@@ -122,5 +135,7 @@ public class TransactionLinkedList implements TransactionList {
 		public void setPrev(transactionNode prev) {
 			this.prev = prev;
 		}
+
+
 	}
 }
