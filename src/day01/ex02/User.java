@@ -48,4 +48,8 @@ public class User {
         else
             System.err.println("Balance cannot be negative!");
     }
+
+    public int getId() {
+        return this.uuid;
+    }
 }
