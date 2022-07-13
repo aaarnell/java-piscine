@@ -19,6 +19,7 @@ class UserNotFoundException extends Exception {
 public class UsersArrayList implements UsersList {
 
 	private User[] users;
+
 	private int size;
 
 	private int capacity;
