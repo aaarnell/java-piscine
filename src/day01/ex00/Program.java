@@ -14,8 +14,10 @@ public class Program{
         Integer amount = 1001;
         Transaction outcome = Transaction.createTransaction(userTommy, userJohn, -amount);
         Transaction income = Transaction.createTransaction(userTommy, userJohn, amount);
-
-        System.out.println("After transaction: " + userTommy.getName() + " " + userTommy.getBalance());
-        System.out.println("After transaction: " + userJohn.getName() + " " + userJohn.getBalance());
+        if (outcome != null && income != null)
+        {
+            System.out.println("After transaction: " + userTommy.getName() + " " + userTommy.getBalance());
+            System.out.println("After transaction: " + userJohn.getName() + " " + userJohn.getBalance());
+        }
     }
 }
