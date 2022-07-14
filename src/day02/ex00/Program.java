@@ -67,8 +67,6 @@ public class Program {
 					fos.write('\n');//write a new line to the file
 					fos.write(maxCount);//write the max count to the file
 				}
-			} catch (FileNotFoundException e) {
-				e.printStackTrace();
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
