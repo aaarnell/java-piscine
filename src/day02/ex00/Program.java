@@ -11,6 +11,9 @@ import java.util.*;
  */
 
 //read from file /Users/wrickard/Desktop/java-piscine/src/day02/ex00/signatures.txt
+	///Users/wrickard/Desktop/java-piscine/src/day02/ex00/someshit.txt
+	///Users/wrickard/Desktop/java-piscine/src/day02/ex00/screen.png
+	//screen.png
 
 public class Program {
 	public static void main(String[] args) {
@@ -59,17 +62,30 @@ public class Program {
 						}
 					}
 				}
-				if (maxCount != -1) {//if the max count is not -1
-					count++;//increment the counter
-					fos.write(count);//write the counter to the file
-					fos.write('\n');//write a new line to the file
-					fos.write(path.getBytes());//write the path to the file
-					fos.write('\n');//write a new line to the file
-					fos.write(maxCount);//write the max count to the file
+				int flag = 0;//create a flag to check if the path is valid
+				for(HashMap.Entry<String, String> entry : signatures.entrySet()) {//loop through the map
+					String key = entry.getKey();//get the key
+					if(sb.toString().toUpperCase().startsWith(key)) {//if the string contains the key
+						flag = 1;//set the flag to 1
+						for (int i = 0; i < key.length(); i++) {//loop through the key
+                        	fos.write(key.charAt(i));//write the character to the file
+                        }
+						fos.write(key.getBytes());//write the key to the file
+						System.out.println("PROCESSED");
+                        	break;
+					}
 				}
+//				if (maxCount != -1) {//if the max count is not -1
+//					count++;//increment the counter
+//					fos.write(count);//write the counter to the file
+//					fos.write(path.getBytes());//write the path to the file
+//					fos.write('\n');//write a new line to the file
+//					fos.write(maxCount);//write the max count to the file
+//				}
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
+			}
+
 		}
 	}
-}
