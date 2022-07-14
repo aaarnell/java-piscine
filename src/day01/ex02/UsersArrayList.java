@@ -32,13 +32,13 @@ public class UsersArrayList implements UsersList {
 
 	public void add(User user) {
 		if (this.size == this.capacity) {
-			User[] newUsers = new User[this.capacity * 2];
+			this.capacity = (int) (this.capacity * 1.5F);
+			User[] newUsers = new User[this.capacity];
 			for (int i = 0; i < this.size; i++) {
 				newUsers[i] = this.users[i];
 			}
-			this.capacity = (int) (this.capacity * 1.5F);
-			System.out.println("Capacity is full, so we increase it to " + this.capacity);
 			this.users = newUsers;
+			System.out.println("Capacity is full, so we increase it to " + this.capacity);
 		}
 		this.users[this.size] = user;
 		this.size++;
