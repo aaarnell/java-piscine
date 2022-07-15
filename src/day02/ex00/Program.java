@@ -28,7 +28,6 @@ public class Program {
 		Scanner scan = new Scanner(System.in);//create a scanner to read from the console
 		String path;
 
-		int count = 0;//create a counter to count the number of signatures
 		StringBuilder sb = new StringBuilder();//create a string builder to store the signatures
 		while (scan.hasNext()) {
 			path = scan.next();//get the path from the console
@@ -70,7 +69,6 @@ public class Program {
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
-			}
-
 		}
 	}
+}
