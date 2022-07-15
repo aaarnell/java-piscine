@@ -48,6 +48,9 @@ public class Program {
 							count1++;//increment the counter
 							if (count1 > maxCount) {//if the counter is greater than the max count
 								maxCount = count1;//set the max count to the counter
+								//удалить с 47 по 50
+								//пройтись по строке с путем и забрать что после точки
+								//потом сравнить это с сигнатурами в файле
 							}
 						}
 					}
