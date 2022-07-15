@@ -1,6 +1,17 @@
 package day03.ex00;
 
-public class Program {
+public class Program implements Runnable {
+	Integer.parseInt(args[0].substring(8));
+	public void run() {
+		for (int i = 0; i < 100; i++) {
+			count++;
+		}
+	}
+
+
+
+
+
 	public static void main(String[] args) {
 		if (args.length == 0) {
 			System.out.println("Please enter --count=<number>");
