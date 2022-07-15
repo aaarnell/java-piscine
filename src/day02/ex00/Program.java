@@ -27,7 +27,6 @@ public class Program {
 
 		Scanner scan = new Scanner(System.in);//create a scanner to read from the console
 		String path;
-
 		StringBuilder sb = new StringBuilder();//create a string builder to store the signatures
 		while (scan.hasNext()) {
 			path = scan.next();//get the path from the console
@@ -42,7 +41,6 @@ public class Program {
  					sb.append((char) a);//append the character to the string builder
  				}
 				String str = sb.toString();//convert the string builder to a string
-
 				for (String key : signatures.keySet()) {//loop through the keys in the map
 					int count1 = 0;//create a counter to count the number of times the signature appears in the string
 					for (int i = 0; i < str.length(); i++) {//loop through the string
