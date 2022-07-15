@@ -31,11 +31,6 @@ public class Transaction {
         this.category = category;
         this.amount  = amount;
         this.uuid = UUID.randomUUID();
-
-        if (category.equals("credit"))
-            sender.setBalance(sender.getBalance() + amount);
-        else
-            recipient.setBalance(recipient.getBalance() + amount);
     }
 
     public static Transaction createTransaction(
@@ -43,10 +38,14 @@ public class Transaction {
             User recipient,
             Integer amount
     ){
-        if (amount > 0 && (sender.getBalance() - amount) >= 0)
+        if (amount > 0 && (sender.getBalance() - amount) >= 0) {
+            recipient.setBalance(recipient.getBalance() + amount);
             return new Transaction(sender, recipient, "debit", amount);
-        else if (amount < 0 && (sender.getBalance() + amount) >= 0)
+        }
+        else if (amount < 0 && (sender.getBalance() + amount) >= 0) {
+            sender.setBalance(sender.getBalance() + amount);
             return new Transaction(sender, recipient, "credit", amount);
+        }
         else {
             System.err.println("Transaction not created. Incorrect data of transaction.");
             return null;
