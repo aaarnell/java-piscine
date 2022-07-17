@@ -1,5 +1,5 @@
 package day03.ex00;
-
+/*
 public class Program implements Runnable {
 	Integer.parseInt(args[0].substring(8));
 	public void run() {
@@ -22,4 +22,4 @@ public class Program implements Runnable {
 			}
 		}
 	}
-}
+}*/

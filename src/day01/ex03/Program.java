@@ -14,8 +14,13 @@ public class Program {
 			//ссылка типа интерфейса TransactionList ссылается на новый объект типа TransactionLinkedList
 			//add - добавляет транзакцию в список
 			//две транзакции с разными ID
+
 			transactionList.add(outcome);
 			transactionList.add(income);
+			transactionList.add(Transaction.createTransaction(userTommy, userJohn, -500));
+			transactionList.add(Transaction.createTransaction(userTommy, userJohn, 500));
+			transactionList.add(Transaction.createTransaction(userTommy, userJohn, -200));
+			transactionList.add(Transaction.createTransaction(userTommy, userJohn, 200));
 			System.out.println("Transaction list size: " + ((TransactionLinkedList) transactionList).getSize());
 			transactionList.removeById(outcome.getUUID());
 			transactionList.removeById(income.getUUID());

@@ -16,34 +16,22 @@ public class TransactionLinkedList implements TransactionList {
 
 	private int size;
 
-	/**
-	 * @param first first element of the list
-	 * @param last last element of the list
-	 * @param size number of elements in the list
-	 */
-
 	public TransactionLinkedList() {
 		this.size = 0;
-		
-		first = new transactionNode(null, null, null);
-		last = new transactionNode(null, null, null);
-		first.setNext(last);
-		last.setPrev(first);
+		first = null;
+		last = null;
 	}
 
 	// Add a transaction to the list
 	public void add(Transaction transaction) {
 		if(size == 0){
-			first.setTransaction(transaction);
+			first = new transactionNode(transaction, null, null);
 			last = first;
-			size++;
-		}
-		else{
-			last.next.setTransaction(transaction);
-			last.next.prev = last;
+		} else {
+			last.next = new transactionNode(transaction, null, last);
 			last = last.next;
-			size++;
 		}
+		size++;
 	}
 
 
@@ -56,8 +44,10 @@ public class TransactionLinkedList implements TransactionList {
 			if (current.getTransaction().getUUID() == uuid) {
 				if (current == first) {
 					first = first.getNext();
+					first.prev = null;
 				} else if (current == last) {
 					last = last.getPrev();
+					last.next = null;
 				} else {
 					previous.setNext(current.getNext());
 					current.getNext().setPrev(previous);
