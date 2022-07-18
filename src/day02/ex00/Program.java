@@ -3,11 +3,6 @@ package day02.ex00;
 import java.io.*;
 import java.util.*;
 
-//read from file /Users/wrickard/Desktop/java-piscine/src/day02/ex00/signatures.txt
-//city-sign-design-mockup.zip
-	///Users/wrickard/Desktop/java-piscine/src/day02/ex00/5800895.jpg
-	///Users/wrickard/Desktop/java-piscine/src/day02/ex00/screen.png
-///Users/wrickard/Desktop/java-piscine/src/day02/ex00/city-sign-design-mockup.zip
 public class Program {
 	public static void main(String[] args) throws IOException {
 		Map<String, String> signatures = new HashMap<>();//create a map to store the signatures
@@ -16,11 +11,10 @@ public class Program {
 			Scanner scanner = new Scanner(new File("src/day02/ex00/signatures.txt")); //read from file
 			while (scanner.hasNextLine()) {
 				String line = scanner.nextLine();
-				String[] words = line.split(", ");//split the line into words
-				String name = words[0];//get the name
-				String signature = words[1];//get the signature
-				signatures.put(signature, name);//put the name and signature into the map
-				//System.out.println(name + " " + signature);//print the name and signature
+				String[] words = line.split(", ");
+				String name = words[0];
+				String signature = words[1];
+				signatures.put(signature, name);
 			}
 			scanner.close();
 		} catch (FileNotFoundException e) {
@@ -49,7 +43,6 @@ public class Program {
 					sb.append(tmp.toUpperCase());
 					if (signatures.containsKey(sb.toString())) {
 						res.append(signatures.get(sb.toString()));
-						//res.append("\n");
 						fos.write(signatures.get(sb.toString()).getBytes());
 						fos.write("\n".getBytes());
 						break;
@@ -58,8 +51,7 @@ public class Program {
 				System.out.println("PROCESSED");
 			} catch (FileNotFoundException e) {
 				System.out.println("UNDEFINED");
-				System.exit(-1);
 			}
+		}
 	}
-}
 }
