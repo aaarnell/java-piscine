@@ -13,7 +13,8 @@ public class Program {
 	public static void main(String[] args) throws IOException {
 		Map<String, String> signatures = new HashMap<>();//create a map to store the signatures
 
-		try (Scanner scanner = new Scanner(new File("src/day02/ex00/signatures.txt"))) {//read from file
+		try {
+			Scanner scanner = new Scanner(new File("src/day02/ex00/signatures.txt")); //read from file
 			while (scanner.hasNextLine()) {
 				String line = scanner.nextLine();
 				String[] words = line.split(", ");//split the line into words
@@ -22,6 +23,7 @@ public class Program {
 				signatures.put(signature, name);//put the name and signature into the map
 				//System.out.println(name + " " + signature);//print the name and signature
 			}
+			scanner.close();
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		}
