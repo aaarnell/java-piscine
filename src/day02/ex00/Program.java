@@ -1,6 +1,7 @@
 package day02.ex00;
 
 import java.io.*;
+//import java.util.HexFormat;
 import java.util.*;
 
 //read from file /Users/wrickard/Desktop/java-piscine/src/day02/ex00/signatures.txt
@@ -9,22 +10,50 @@ import java.util.*;
 	//screen.png
 
 public class Program {
-	public static void main(String[] args) {
+	public static void main(String[] args) throws IOException {
 		Map<String, String> signatures = new HashMap<>();//create a map to store the signatures
 
 		try (Scanner scanner = new Scanner(new File("src/day02/ex00/signatures.txt"))) {//read from file
 			while (scanner.hasNextLine()) {
 				String line = scanner.nextLine();
-				String[] words = line.split("[ ,]+");//split the line into words
+				String[] words = line.split(", ");//split the line into words
 				String name = words[0];//get the name
 				String signature = words[1];//get the signature
-				signatures.put(name, signature);//put the name and signature into the map
+				signatures.put(signature, name);//put the name and signature into the map
 				//System.out.println(name + " " + signature);//print the name and signature
 			}
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		}
 
+		StringBuilder res = new StringBuilder();
+
+		try {
+			StringBuilder sb = new StringBuilder();
+			FileInputStream fis = new FileInputStream("/Users/wrickard/Desktop/java-piscine/src/day02/ex00/5800895.jpg");
+			for (int i = 0; i < 8; i++) {
+				if (i > 0) {
+					sb.append(' ');
+				}
+				String tmp = Integer.toHexString(fis.read());
+				if (tmp.length() == 1) {
+					sb.append('0');
+				}
+				sb.append(tmp.toUpperCase());
+				if (signatures.containsKey(sb.toString())) {
+					res.append(signatures.get(sb.toString()));
+					break;
+				}
+			}
+			if(res.length() == 0)
+				res.append("UNDEFINED");
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		}
+		System.out.println(res);
+
+
+/*
 		Scanner scan = new Scanner(System.in);//create a scanner to read from the console
 		String path;
 		StringBuilder sb = new StringBuilder();//create a string builder to store the signatures
@@ -69,6 +98,6 @@ public class Program {
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
-		}
+		}*/
 	}
 }
