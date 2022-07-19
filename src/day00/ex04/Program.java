@@ -4,14 +4,15 @@ import java.util.Scanner;
 
 public class Program {
     public static void main(String[] args) {
+
         Scanner in = new Scanner(System.in);
+
         String data = in.nextLine();
-        //Проверка на пустой ввод
+
         if (data.length() == 0)
             return;
         char[] string = data.toCharArray();
 
-        //посчитаем число повторов символов
         int cnt;
         int[] arr = new int[65535];
         if ((cnt = countNumOccurChars(data, arr, string)) == -999) {
@@ -19,17 +20,11 @@ public class Program {
             return;
         }
 
-        //найдем 10 символов с самым большим числов повторов
         int[] indexMax = new int[10];
         getIndexMaxTen(arr, indexMax, cnt);
-
-        //Заполним массив для вывода символом #
         char[][] out = new char[11][10];
         fillOutputArray(arr, indexMax, out);
-
-        //Выведем в консоль результат
         outputData(arr, indexMax, out);
-
         in.close();
     }
 
@@ -92,7 +87,7 @@ public class Program {
     }
 
     static void outputData(int[] arr, int[] indexMax, char[][] out) {
-        //Вывод массива столбцов # с числами в голове столбца
+
         for (int i = 0; i < 11; i++){
             for (int j = 0; j < 10; j++) {
                 if (indexMax[j] == -1)
@@ -105,7 +100,6 @@ public class Program {
             System.out.print("\n");
         }
 
-        //Распечатаем символы в основании столбцов
         for (int i = 0; i < 10; i++) {
             if (indexMax[i] == -1)
                 break;
