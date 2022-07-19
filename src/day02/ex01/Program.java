@@ -1,12 +1,12 @@
-package day02.ex01;
-
 import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.*;
-import java.util.stream.Collectors;
 
 public class Program {
+
+    static long expectedSizeInMB = 10;
+    static long expectedSizeInBytes = 1024 * 1024 * expectedSizeInMB;
 
     private static class Values {
 
@@ -69,7 +69,6 @@ public class Program {
             }
         }
 
-        //calculate the cosine similarity score.
         double vectAB = 0.0000000;
         double vectA = 0.0000000;
         double vectB = 0.0000000;
@@ -77,23 +76,34 @@ public class Program {
             Values vals12 = wordFreqVector.get(distinctWords.get(i)); //получить значения для слова
             double freq1 = vals12.val1;
             double freq2 = vals12.val2;
-            //System.out.println(distinctWords.get(i) + "#" + freq1 + "#" + freq2);
+
             vectAB = vectAB + freq1 * freq2;
             vectA = vectA + freq1 * freq1;
             vectB = vectB + freq2 * freq2;
         }
-        //System.out.println("VectAB " + vectAB + " VectA_Sq " + vectA + " VectB_Sq " + vectB);
-        return ((vectAB) / (Math.sqrt(vectA) * Math.sqrt(vectB)));//вычисляем косинусную меру сходства
+        return vectAB / (Math.sqrt(vectA) * Math.sqrt(vectB));
     }
 
-    public static void main(String[] args) throws IOException {
-        Program cs = new Program();//создать объект класса Program
+    public static void main(String[] args) throws Exception {
+        Program cs = new Program();//создать объект класса Program для вызова методов класса Program
+        if (args.length != 2)
+            throw new Exception("Number of arguments greater than 2");
+        try {
+            long textAsizeInBytes = Files.size(Paths.get(args[0]));
+            long textBsizeInBytes = Files.size(Paths.get(args[1]));
 
-        String text1 = Files.readAllLines(Paths.get("/Users/wrickard/Desktop/java-piscine/src/day02/ex01/fileA.txt")).stream().collect(Collectors.joining(" "));//получить текст из файла fileA.txt
-        String text2 = Files.readAllLines(Paths.get("/Users/wrickard/Desktop/java-piscine/src/day02/ex01/fileB.txt")).stream().collect(Collectors.joining(" "));
+            if (textAsizeInBytes > expectedSizeInBytes || textBsizeInBytes > expectedSizeInBytes)
+                System.out.println("File bigger than " + expectedSizeInMB + " MB");
+            else {
+                String text1 = String.join(" ", Files.readAllLines(Paths.get(args[0])));
+                String text2 = String.join(" ", Files.readAllLines(Paths.get(args[1])));
 
-        double score = cs.score(text1, text2);//вычислить косинусную меру сходства
-        System.out.println("Cosine similarity score = " + score);
+                double score = cs.score(text1, text2);//вычислить косинусную меру сходства
+                System.out.println("Similarity = " + (double)((long)(score * 100)) / 100);
+            }
+		} catch (IOException e) {
+			System.out.println("Error: " + e.getMessage());
+		}
     }
 }
 
