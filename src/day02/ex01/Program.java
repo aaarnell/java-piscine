@@ -22,36 +22,32 @@ public class Program {
             this.val1 = v1;
             this.val2 = v2;
         }
-    }// end of class Values
+    }
 
     public double score(String text1, String text2) {
-        //Определите отдельные слова из обоих документов
-        //разбить текст1 на слова и получить массив слов
 
         String[] text1Words = text1.split(" ");
         String[] text2Words = text2.split(" ");
-        Map<String, Values> wordFreqVector = new HashMap<>();// word, (val1, val2)
-        List<String> distinctWords = new ArrayList<>();//отдельные слова из обоих документов
+        Map<String, Values> wordFreqVector = new HashMap<>();
+        List<String> distinctWords = new ArrayList<>();
 
-        //подготовить вектор частоты слов с помощью Text1
-        for (String text : text1Words) {//для каждого слова из текста1
+        for (String text : text1Words) {
             String word = text.trim();
             if (!word.isEmpty()) {
-                if (wordFreqVector.containsKey(word)) {//если слово уже находится в wordFreqVector
-                    Values vals1 = wordFreqVector.get(word); //получить значения для слова
-                    int freq1 = vals1.val1 + 1;//увеличить частоту слова на 1
-                    int freq2 = vals1.val2;//сохранить одинаковую частоту слова в тексте2
-                    vals1.updateValues(freq1, freq2);//обновить значения слова в wordFreqVector
-                    wordFreqVector.put(word, vals1);//обновить wordFreqVector
+                if (wordFreqVector.containsKey(word)) {
+                    Values vals1 = wordFreqVector.get(word);
+                    int freq1 = vals1.val1 + 1;
+                    int freq2 = vals1.val2;
+                    vals1.updateValues(freq1, freq2);
+                    wordFreqVector.put(word, vals1);
                 } else {
-                    Values vals1 = new Values(1, 0);//создать новые значения для слова в wordFreqVector
-                    wordFreqVector.put(word, vals1);//добавить слово в wordFreqVector
-                    distinctWords.add(word);//добавить слово в distinctWords
+                    Values vals1 = new Values(1, 0);
+                    wordFreqVector.put(word, vals1);
+                    distinctWords.add(word);
                 }
             }
         }
 
-        //подготовить вектор частоты слов с помощью Text2
         for (String text : text2Words) {
             String word = text.trim();
             if (!word.isEmpty()) {
@@ -72,8 +68,8 @@ public class Program {
         double vectAB = 0.0000000;
         double vectA = 0.0000000;
         double vectB = 0.0000000;
-        for (int i = 0; i < distinctWords.size(); i++) { //для каждого слова из distinctWords
-            Values vals12 = wordFreqVector.get(distinctWords.get(i)); //получить значения для слова
+        for (int i = 0; i < distinctWords.size(); i++) {
+            Values vals12 = wordFreqVector.get(distinctWords.get(i));
             double freq1 = vals12.val1;
             double freq2 = vals12.val2;
 
@@ -85,7 +81,7 @@ public class Program {
     }
 
     public static void main(String[] args) throws Exception {
-        Program cs = new Program();//создать объект класса Program для вызова методов класса Program
+        Program cs = new Program();
         if (args.length != 2)
             throw new Exception("Number of arguments greater than 2");
         try {
