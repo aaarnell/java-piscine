@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class Program {
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
-        String str = "";
+        StringBuilder str = new StringBuilder("");
         for (int i = 1; i <= 18; ++i)
         {
             System.out.print("-> ");
@@ -14,10 +14,9 @@ public class Program {
                 break;
             if (!strOfWeek.equals("Week " + i))
             {
-                System.err.println("Incorrect week data");
-                return;
+                System.err.println("IllegalArgument");
+                System.exit(-1);;
             }
-            str += strOfWeek + " ";
             System.out.print("-> ");
             String arrow = getArrow(scan.nextLine());
             if (arrow.equals("null"))
@@ -25,7 +24,7 @@ public class Program {
                 System.err.println("Incorrect test data");
                 return;
             }
-            str += arrow;
+            str.append(strOfWeek).append(" ").append(arrow);
         }
         scan.close();
         System.out.println(str);
@@ -47,10 +46,10 @@ public class Program {
         nums.close();
         if (cnt != 5)
             return "null";
-        String result = "";
+        StringBuilder result = new StringBuilder("");
         for (int i = 0; i < min; i++)
-            result += "=";
-        result += ">\n";
-        return result;
+            result.append("=");
+        result.append(">\n");
+        return result.toString();
     }
 }
