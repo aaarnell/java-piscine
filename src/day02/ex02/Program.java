@@ -13,7 +13,7 @@ public class Program {
 //	}
 	public static void main(String[] args) throws IOException {
         ProcessBuilder processBuilder = new ProcessBuilder("bash", "", "ls");
-        Process p = processBuilder.start();
+        Process p = processBuilder.start();// 启动进程
         BufferedReader reader = new BufferedReader(new InputStreamReader(p.getInputStream()));
         String readline;
         List<String> files = new ArrayList<String>();

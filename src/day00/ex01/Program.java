@@ -4,6 +4,7 @@ import java.util.Scanner;
 
 public class Program {
     public static void main(String[] args) {
+        System.out.print("-> ");
         Scanner sc = new Scanner(System.in);
         int num = 0;
         try {
@@ -17,14 +18,12 @@ public class Program {
         }
         boolean flag = true;
         int i = 2;
-        while(i <= num / 2) {
+        for (; i * i <= num; i++) {
             if (num % i == 0) {
                 flag = false;
                 break;
             }
-            ++i;
         }
-        --i;
-        System.out.println(flag+" "+i);
+        System.out.println(flag + " " + (i - 1));
     }
 }
