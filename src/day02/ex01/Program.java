@@ -94,13 +94,11 @@ public class Program {
                 String text1 = String.join(" ", Files.readAllLines(Paths.get(args[0])));
                 String text2 = String.join(" ", Files.readAllLines(Paths.get(args[1])));
 
-                double score = cs.score(text1, text2);//вычислить косинусную меру сходства
+                double score = cs.score(text1, text2);
                 System.out.println("Similarity = " + (double)((long)(score * 100)) / 100);
             }
-		} catch (IOException e) {
+		} catch (Exception e) {
 			System.out.println("Error: " + e.getMessage());
 		}
     }
 }
-
-
