@@ -17,11 +17,11 @@ public class BuiltIn {
         StringBuilder res = new StringBuilder(path.toString());
         if(arg1.startsWith("../"))
         {
-            res.append(path.toString().substring(0, path.toString().lastIndexOf('/'))).append(arg1.substring(2))
+            res.append(path.toString().substring(0, path.toString().lastIndexOf('/'))).append(arg1.substring(2));
         }
         if(arg1.startsWith("./"))
         {
-            res.append(path.toString().substring(0, path.toString().lastIndexOf('/'))).append(arg1.substring(2))
+            res.append(path.toString().substring(0, path.toString().lastIndexOf('/'))).append(arg1.substring(2));
         }
 
         //проверить, корректна ли директория в arg1
