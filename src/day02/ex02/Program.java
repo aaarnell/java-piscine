@@ -3,16 +3,9 @@ package day02.ex02;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Scanner;
 
 public class Program {
-
 
 	public static void main(String[] args) throws Exception{
 
@@ -28,10 +21,9 @@ public class Program {
         System.out.println(path.toString());
 
         Scanner input = new Scanner(System.in);
-        //бесконечный цикл пока не будет введено слово exit
         while (true)
         {
-            System.out.println("-> ");
+            System.out.print("-> ");
             String[] cmd = input.nextLine().split(" ");
             if (cmd[0].equals("exit") && cmd.length == 1) {
                 input.close();
