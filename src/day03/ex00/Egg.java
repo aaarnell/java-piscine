@@ -1,9 +1,9 @@
-package day03.ex00;
+//package day03.ex00;
 
-public class Egg {
+public class Egg extends Thread {
 	private int count;
 
-	public Egg(int count) {
+	public void EggThread(int count) {
 		this.count = count;
 	}
 

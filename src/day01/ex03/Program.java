@@ -5,15 +5,11 @@ public class Program {
 		try {
 			User userTommy = new User("Tommy", 2000);
 			User userJohn = new User("John", 1000);
-			// Create a transaction
-			//Transaction transaction = Transaction.createTransaction(userTommy, userJohn, -100);
+
 			Integer amount = 100;
 			Transaction outcome = Transaction.createTransaction(userTommy, userJohn, -amount);
         	Transaction income = Transaction.createTransaction(userTommy, userJohn, amount);
 			TransactionList transactionList = new TransactionLinkedList();
-			//ссылка типа интерфейса TransactionList ссылается на новый объект типа TransactionLinkedList
-			//add - добавляет транзакцию в список
-			//две транзакции с разными ID
 
 			transactionList.add(outcome);
 			transactionList.add(income);

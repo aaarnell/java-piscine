@@ -26,10 +26,6 @@ public class User {
         return this.uuid;
     }
 
-    public void setUUID(Integer uuid){
-        this.uuid = uuid;
-    }
-
     public String getName(){
         return this.name;
     }
