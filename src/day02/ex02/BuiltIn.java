@@ -1,10 +1,11 @@
-package day02.ex02;
+//package day02.ex02;
 
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.Files;
+import java.util.Objects;
 
 public class BuiltIn {
     public static void mv(Path path, String arg1, String arg2) {
@@ -32,7 +33,7 @@ public class BuiltIn {
 
     public static void ls(Path path) throws IOException {
         File file = new File(path.toString());
-        for ( File f : file.listFiles() ){
+        for ( File f : Objects.requireNonNull(file.listFiles())){
             System.out.println(f.getName() + " " + Files.size(f.toPath()) + " KB");
         }
     }
