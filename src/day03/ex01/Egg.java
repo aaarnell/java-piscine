@@ -1,4 +1,4 @@
-//package day03.ex01;
+package day03.ex01;
 
 public class Egg extends Thread {
 	final ResourceLock lock;
@@ -19,7 +19,7 @@ public class Egg extends Thread {
 					System.out.println("Egg");
 					Thread.sleep(100);
 					lock.flag = 2;
-					lock.notifyAll();
+					lock.notify();
 				}
 			}
 		}

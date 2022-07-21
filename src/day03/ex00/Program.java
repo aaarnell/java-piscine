@@ -1,4 +1,4 @@
-//package day03.ex00;
+package day03.ex00;
 
 public class Program {
 
@@ -12,13 +12,8 @@ public class Program {
         		System.out.println("Please enter a number greater than 1");
         }
 
-		Egg egg = new Egg();
-		Hen hen = new Hen();
-
-        egg.EggThread(count);
-        hen.HenThread(count);
-		egg.start();
-		hen.start();
+		Hen hen = new Hen("Hen", count);
+		Egg egg = new Egg("Egg", count);
 
 		try {
 			egg.join();
