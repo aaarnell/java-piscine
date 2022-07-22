@@ -5,7 +5,9 @@
     <content url="file://$MODULE_DIR$">
       <sourceFolder url="file://$MODULE_DIR$/src_" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src_/day04/ex00/ImagesToChar/src/java" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src_/day04/ex01/ImagesToChar/src/java" isTestSource="false" />
       <excludeFolder url="file://$MODULE_DIR$/src_/day04/ex00/ImagesToChar" />
+      <excludeFolder url="file://$MODULE_DIR$/src_/day04/ex01/ImagesToChar/src" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
