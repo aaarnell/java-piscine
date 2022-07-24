@@ -21,21 +21,6 @@ public class Chatroom {
 		this.messages = new ArrayList<Message>();
 	}
 
-    public String toString() {
-        String res = "[ROOM] >>" +
-                " | id: " + id +
-                " | name: " + name +
-                " | owner: " + owner +
-                " | messageList: " + messages +
-                " | <<";
-        return res;
-    }
-
-	public int hashCode() {
-		final int prime = 4;
-		return (prime * id.hashCode() + prime);
-	}
-
 	public Long getId() {
 		return id;
 	}
@@ -62,5 +47,26 @@ public class Chatroom {
 
 	public void setMessages(List<Message> messages) {
 		this.messages = messages;
+	}
+
+	public int hashCode() {
+		final int prime = 4;
+		return (prime * id.hashCode() + prime);
+	}
+
+	public boolean equals(Chatroom chatroom) {
+		if (this.hashCode() != chatroom.hashCode())
+			return false;
+		return true;
+	}
+
+	public String toString() {
+		String res = "[ROOM] >>" +
+				" | id: " + id +
+				" | name: " + name +
+				" | owner: " + owner +
+				" | messageList: " + messages +
+				" | <<";
+		return res;
 	}
 }

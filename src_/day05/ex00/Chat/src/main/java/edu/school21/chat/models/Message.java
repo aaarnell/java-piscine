@@ -23,22 +23,6 @@ public class Message {
         this.timestamp = timestamp;
 	}
 
-	public int hashCode() {
-		final int prime = 2;
-		return (prime * id.hashCode() + prime);
-	}
-
-	public String toString() {
-		String res = "[MESSAGE] >>" +
-				" | id: " + id +
-				" | content: " + content +
-				" | sender: " + sender +
-				" | chatroom: " + chatroom +
-				" | timestamp " + timestamp.format(DateTimeFormatter.ISO_LOCAL_DATE_TIME) +
-				" | <<";
-		return res;
-	}
-
 	public Long getId() {
 		return id;
 	}
@@ -78,4 +62,26 @@ public class Message {
     public void setTimestamp(LocalDateTime timestamp) {
         this.timestamp = timestamp;
     }
+
+	public int hashCode() {
+		final int prime = 2;
+		return (prime * id.hashCode() + prime);
+	}
+
+	public boolean equals(Message message) {
+		if (this.hashCode() != message.hashCode())
+			return false;
+		return true;
+	}
+
+	public String toString() {
+		String res = "[MESSAGE] >>" +
+				" | id: " + id +
+				" | content: " + content +
+				" | sender: " + sender +
+				" | chatroom: " + chatroom +
+				" | timestamp " + timestamp.format(DateTimeFormatter.ISO_LOCAL_DATE_TIME) +
+				" | <<";
+		return res;
+	}
 }
