@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module org.jetbrains.idea.maven.project.MavenProjectsManager.isMavenModule="true" type="JAVA_MODULE" version="4">
+  <component name="NewModuleRootManager" LANGUAGE_LEVEL="JDK_1_8">
+    <output url="file://$MODULE_DIR$/../src_/day05/ex00/Chat/target/classes" />
+    <output-test url="file://$MODULE_DIR$/../src_/day05/ex00/Chat/target/test-classes" />
+    <content url="file://$MODULE_DIR$/../src_/day05/ex00/Chat">
+      <sourceFolder url="file://$MODULE_DIR$/../src_/day05/ex00/Chat/src/main/java" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/../src_/day05/ex00/Chat/src/main/resources" type="java-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/../src_/day05/ex00/Chat/src/test/java" isTestSource="true" />
+      <excludeFolder url="file://$MODULE_DIR$/../src_/day05/ex00/Chat/target" />
+    </content>
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+  </component>
+</module>
