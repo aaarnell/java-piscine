@@ -9,7 +9,7 @@ import java.sql.Driver;
 
 public class User {
 
-    private Long id;
+    private Integer id;
 
     private String login;
 
@@ -19,7 +19,7 @@ public class User {
 
     List<Chatroom> senderChatRooms;
 
-    public User (Long id, String login, String password) {
+    public User (Integer id, String login, String password) {
         this.id = id;
         this.login = login;
         this.password = password;
@@ -27,7 +27,7 @@ public class User {
         this.senderChatRooms = new ArrayList<Chatroom>();
     }
 
-    public Long getId() {
+    public Integer getId() {
         return id;
     }
 

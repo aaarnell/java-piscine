@@ -7,12 +7,14 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="Chat" />
+        <module name="java-piscine" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="Chat" target="8" />
       <module name="day05" target="8" />
       <module name="ex00" target="8" />
+      <module name="java-piscine" target="8" />
     </bytecodeTargetLevel>
   </component>
 </project>

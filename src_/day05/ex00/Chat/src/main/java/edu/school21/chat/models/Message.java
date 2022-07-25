@@ -5,7 +5,7 @@ import java.time.format.DateTimeFormatter;
 
 public class Message {
 
-	private Long id;
+	private Integer id;
 
 	private String content;
 
@@ -15,7 +15,7 @@ public class Message {
 
 	private Chatroom chatroom;
 
-	public Message(Long id, String content, User sender, Chatroom chatroom, LocalDateTime timestamp) {
+	public Message(Integer id, String content, User sender, Chatroom chatroom, LocalDateTime timestamp) {
 		this.id = id;
 		this.content = content;
 		this.sender = sender;
@@ -23,11 +23,11 @@ public class Message {
         this.timestamp = timestamp;
 	}
 
-	public Long getId() {
+	public Integer getId() {
 		return id;
 	}
 
-	public void setId(Long id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 
