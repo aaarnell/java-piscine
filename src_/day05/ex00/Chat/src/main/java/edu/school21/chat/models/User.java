@@ -9,7 +9,7 @@ import java.sql.Driver;
 
 public class User {
 
-    private Integer id;
+    private Long id;
 
     private String login;
 
@@ -19,15 +19,15 @@ public class User {
 
     List<Chatroom> senderChatRooms;
 
-    public User (Integer id, String login, String password) {
+    public User (Long id, String login, String password, List<Chatroom> ownerChatRooms, List<Chatroom> senderChatRooms) {
         this.id = id;
         this.login = login;
         this.password = password;
-        this.ownerChatRooms = new ArrayList<Chatroom>();
-        this.senderChatRooms = new ArrayList<Chatroom>();
+        this.ownerChatRooms = ownerChatRooms;
+        this.senderChatRooms = senderChatRooms;
     }
 
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
@@ -39,8 +39,27 @@ public class User {
         this.login = login;
     }
 
+    public String getPassword() {
+        return password;
+    }
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public List<Chatroom> getOwnerChatRooms() {
+        return ownerChatRooms;
+    }
+
+    public void setOwnerChatRooms(List<Chatroom> ownerChatRooms) {
+        this.ownerChatRooms = ownerChatRooms;
+    }
+
+    public List<Chatroom> getSenderChatRooms() {
+        return ownerChatRooms;
+    }
+
+    public void setSenderChatRooms(List<Chatroom> senderChatRooms) {
+        this.senderChatRooms = senderChatRooms;
     }
 
     public int hashCode() {

@@ -5,7 +5,7 @@ import java.util.List;
 
 public class Chatroom {
 
-	private Integer id;
+	private Long id;
 
 	private String name;
 
@@ -13,14 +13,14 @@ public class Chatroom {
 
 	List<Message> messages;
 
-	public Chatroom (Integer id, String name, User owner) {
+	public Chatroom (Long id, String name, User owner, List<Message> messages) {
 		this.id = id;
 		this.name = name;
 		this.owner = owner;
-		this.messages = new ArrayList<Message>();
+		this.messages = messages;
 	}
 
-	public Integer getId() {
+	public Long getId() {
 		return id;
 	}
 

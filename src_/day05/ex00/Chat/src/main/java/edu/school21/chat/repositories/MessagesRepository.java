@@ -7,4 +7,5 @@ import java.util.Optional;
 
 public interface MessagesRepository {
     public Optional<Message> findById(Long id) throws SQLException;//поиск сообщения по id
+    public Long save(Message message) throws SQLException, NotSavedSubEntityException;
 }

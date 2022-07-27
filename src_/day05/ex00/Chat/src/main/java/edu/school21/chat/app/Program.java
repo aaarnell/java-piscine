@@ -10,13 +10,14 @@ import java.util.Optional;
 
 public class Program {
 	public static void main(String[] args) throws SQLException {
+		final String pathDB = "jdbc:postgresql://localhost:5432/postgres";
 		HikariDataSource dataSource = new HikariDataSource();
 		/**HikariDataSource — это класс, предоставляющий пул соединений для соединений JDBC.
 		Это оболочка вокруг вызова JDBC DriverManager.getConnection().
 		Это синглтон, поэтому можно получить объект из любого места программы.
 		*/
 
-		dataSource.setJdbcUrl("jdbc:postgresql://localhost:5433/postgres");//путь к базе данных
+		dataSource.setJdbcUrl(pathDB);//путь к базе данных
 		dataSource.setUsername("");//логин пользователя
 		dataSource.setPassword("");//пароль пользователя
 
