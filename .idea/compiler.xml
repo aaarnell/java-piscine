@@ -6,14 +6,18 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="java-piscine" />
+        <module name="Tests_ex01" />
+        <module name="Chat" />
+        <module name="Tests_ex_01" />
+        <module name="Tests" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="Chat" target="8" />
       <module name="day05" target="8" />
+      <module name="day06" target="1.5" />
       <module name="ex00" target="8" />
-      <module name="java-piscine" target="1.8" />
+      <module name="java-piscine" target="8" />
+      <module name="Tests_ex_01" target="1.5" />
     </bytecodeTargetLevel>
   </component>
 </project>
