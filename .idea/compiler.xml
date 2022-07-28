@@ -7,8 +7,8 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="Tests_ex01" />
+        <module name="Spring" />
         <module name="Tests_ex_01" />
-        <module name="Test" />
         <module name="Tests" />
       </profile>
     </annotationProcessing>
