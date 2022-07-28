@@ -8,6 +8,8 @@
         <option value="$PROJECT_DIR$/src_/day06/pom.xml" />
         <option value="$PROJECT_DIR$/day06/pom.xml" />
         <option value="$PROJECT_DIR$/src_/day06/ex00/Tests/pom.xml" />
+        <option value="$PROJECT_DIR$/src_/day06/ex01/Tests_ex01/pom.xml" />
+        <option value="$PROJECT_DIR$/src_/day06/ex01/Tests_ex_01/pom.xml" />
       </list>
     </option>
     <option name="ignoredFiles">
@@ -16,7 +18,7 @@
       </set>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" project-jdk-name="corretto-1.8" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" default="true" project-jdk-name="corretto-1.8" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/out" />
   </component>
 </project>
