@@ -1,14 +1,20 @@
 package edu.school21.printer;
 
+import edu.school21.renderer.Renderer;
+
 public class PrinterWithPrefixImpl implements Printer {
     private String prefix;
+    private Renderer renderer;
 
-    public PrinterWithPrefixImpl(String prefix) {
+    public PrinterWithPrefixImpl(Renderer renderer) {
+        this.renderer = renderer;
+    }
+
+    public void setPrefix(String prefix) {
         this.prefix = prefix;
     }
 
-    public void print(String text) {
-        System.out.println(prefix + text);
+    public void print(String message) {
+        renderer.print(this.prefix + message);
     }
 }
-

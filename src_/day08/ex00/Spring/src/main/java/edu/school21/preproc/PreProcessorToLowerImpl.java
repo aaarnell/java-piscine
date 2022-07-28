@@ -1,7 +1,7 @@
 package edu.school21.preproc;
 
-public class PreProcessorToLowerImpl {
-    public String process(String input) {
-        return input.toLowerCase();
+public class PreProcessorToLowerImpl implements PreProcessor {
+    public String preProcess(String initString) {
+        return initString.toLowerCase();
     }
 }

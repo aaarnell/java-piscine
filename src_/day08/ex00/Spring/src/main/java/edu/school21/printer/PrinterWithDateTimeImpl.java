@@ -1,16 +1,17 @@
 package edu.school21.printer;
 
+import edu.school21.renderer.Renderer;
+import java.util.Date;
+
 public class PrinterWithDateTimeImpl implements Printer {
+    private Date date = new Date();
+    private Renderer renderer;
 
-    public void print(String input) {
-        System.out.println(input);
+    public PrinterWithDateTimeImpl(Renderer renderer) {
+        this.renderer = renderer;
     }
 
-    public void printWithDateTime(String input) {
-        System.out.println(input);
-    }
-
-    public void printWithDateTime(String input, String dateTime) {
-        System.out.println(input + " " + dateTime);
+    public void print(String message) {
+        renderer.print(date.toString() + " " + message);
     }
 }
