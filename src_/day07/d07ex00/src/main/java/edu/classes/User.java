@@ -3,9 +3,9 @@ package edu.classes;
 import java.util.StringJoiner;
 
 public class User {
-    private String firstName;
-    private String lastName;
-    private int height;
+    private String  firstName;
+    private String  lastName;
+    private Integer height;
 
     public User() {
         this.firstName = "Default first name";
