@@ -20,6 +20,7 @@
       <module name="day06" target="1.5" />
       <module name="ex00" target="1.8" />
       <module name="java-piscine" target="1.8" />
+      <module name="Spring01" target="1.8" />
       <module name="Tests_ex_01" target="1.5" />
     </bytecodeTargetLevel>
   </component>

@@ -1,4 +1,4 @@
 INSERT INTO data(email)
-VALUES ('kitty'),
-       ('katty'),
-       ('meow');
+VALUES ('kitty@mail.ru'),
+       ('katty@mail.ru'),
+       ('meow@mail.ru');
